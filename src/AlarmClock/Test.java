@@ -117,11 +117,11 @@ class ThreadOne implements Runnable{
         boolean boo = false;
         public void actionPerformed(ActionEvent ev) {
             if (boo == false) { // выключаем будильник
-                threadOne.stop();
+                wait();
                 newButton.setText("Включить");
                 boo = true;
             } else {
-                threadTwo.start();
+                notiffy();
                 boo = false;
                 newButton.setText("Выключить");
             }
