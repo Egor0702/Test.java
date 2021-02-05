@@ -12,7 +12,6 @@ public class Test {
     static String date;
     JButton newButton;
     Thread threadOne;
-    Thread threadTwo;
     JTextField text;
     JFrame frame;
     JPanel panel;
@@ -65,7 +64,7 @@ class ThreadOne implements Runnable{
         }
     }
     public void setingTime(String input) {
-        while (!threadOne.isInterrupted()) {
+        while (!threadOne . isInterrupted ()) {
             Calendar calendar = Calendar.getInstance();
             SimpleDateFormat format1 = new SimpleDateFormat("HH:mm");
             Date date = calendar.getTime();
@@ -84,7 +83,6 @@ class ThreadOne implements Runnable{
             date = time;
             calc(date);
             threadOne = new Thread(new ThreadOne());
-            threadTwo = new Thread(new ThreadTwo());
             threadOne.start();
             text.setText("");
         }
