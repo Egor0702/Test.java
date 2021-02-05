@@ -65,7 +65,7 @@ class ThreadOne implements Runnable{
         }
     }
     public void setingTime(String input) {
-        while (true) {
+        while (!threadOne.isInterrupted()) {
             Calendar calendar = Calendar.getInstance();
             SimpleDateFormat format1 = new SimpleDateFormat("HH:mm");
             Date date = calendar.getTime();
@@ -117,11 +117,11 @@ class ThreadOne implements Runnable{
         boolean boo = false;
         public void actionPerformed(ActionEvent ev) {
             if (boo == false) { // выключаем будильник
-                wait();
+                threadOne.interrupt();
                 newButton.setText("Включить");
                 boo = true;
             } else {
-                notiffy();
+                threadOne.interrupted();
                 boo = false;
                 newButton.setText("Выключить");
             }
